@@ -106,7 +106,7 @@ div.left_button {
     width: 50%;
     height: 50px;
     position: absolute;
-    right: 40px;
+    right: 50px;
 }
 
 
@@ -122,10 +122,10 @@ div.left_icon_set {
 /* 右側レシピメイン枠 */
 
 div.right_button {
-    width: 50%;
+    width: 40%;
     height: 50px;
     position: absolute;
-    left: 130px;
+    left: 124px;
 }
 
 

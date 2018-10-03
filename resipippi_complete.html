@@ -20,9 +20,6 @@
                 $.ajax({
                     type: "POST",
                     url: "sample.php",
-                    data: {
-                        "sample": 2
-                    },
                     // 通信に成功したとき新たな関数を起動しここにHTMLに表示するコードを書く
                     success: getRecipeData
                 });
@@ -34,31 +31,41 @@
             // const $container = $('.container');
             // $container.find('.title').text()
             // $container.find('.title-label').append()
-            $("div").append(`<h2>${result.recipeName}</h2>`);
+            $("div").append(`<h2>${result.recipe_Name}</h2>`);
             // 新しめ IE11で動かない
             for (image of result.images) {
-                $("div").append(`<img src="${image}">`);
+                $("div").append(`<img src="${image_path}">`);
             }
+            $("div").append(`<p>${result.comment}</p>`);
+            for (step of result.steps) {
+                $("div").append(`<ul>${result.step}</ul>`);
+            }
+            for (food of result.foods) {
+                $("div").append(`<ol>${result.food_list}/<ol>`);
+            }
+
             // 昔ながら
-            $("div").append(`<ol id="tejyun"></ol>`);
-            result.recipeStep.forEach(step => {
-                $("#tejyun").append(`<li>${step}</li>`);
-            });
+            // $("div").append(`<ol id="tejyun"></ol>`);
+            // result.recipeStep.forEach(step => {
+            //     $("#tejyun").append(`<li>${step}</li>`);
+            // });
+            // }
+            // PHPが返すデータ {
+            // var debugJsonData = {
+            //     recipeName: "カレー",
+            //     recipeStep:[
+            //             "切る",
+            //             "焼く",
+            //             "煮込む"
+            //                     ],
+            //     images:[
+            //             "sample.jpg"
+            //                         ]
+            //             };
+
         }
-        // PHPが返すデータ {
-        // var debugJsonData = {
-        //     recipeName: "カレー",
-        //     recipeStep:[
-        //             "切る",
-        //             "焼く",
-        //             "煮込む"
-        //                     ],
-        //     images:[
-        //             "sample.jpg"
-        //                         ]
-        //             };
-        //     }
     </script>
+
 
     <!-- メインヘッダー -->
     <div class="header_page">
@@ -110,6 +117,20 @@
     </div>
     <div id="target"></div>
     <a href="#" class="cp_btn" id="bt">スタート</a>
+
+    <div>
+        <h2></h2>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <div><img src=""></div>
+    <div>
+        <ul></ul>
+    </div>
+    <div>
+        <ol></ol>
+    </div>
 </body>
 
 </html>
